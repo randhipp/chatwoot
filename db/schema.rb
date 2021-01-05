@@ -428,6 +428,23 @@ ActiveRecord::Schema.define(version: 2020_11_25_123131) do
     t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "platform_app_permissibles", force: :cascade do |t|
+    t.bigint "platform_app_id", null: false
+    t.string "permissible_type", null: false
+    t.bigint "permissible_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["permissible_type", "permissible_id"], name: "index_platform_app_permissibles_on_permissibles"
+    t.index ["platform_app_id", "permissible_id", "permissible_type"], name: "unique_permissibles_index", unique: true
+    t.index ["platform_app_id"], name: "index_platform_app_permissibles_on_platform_app_id"
+  end
+
+  create_table "platform_apps", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "super_admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
