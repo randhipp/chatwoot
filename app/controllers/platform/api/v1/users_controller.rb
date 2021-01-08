@@ -16,7 +16,10 @@ class Platform::Api::V1::UsersController < PlatformController
     render json: { url: "#{ENV['FRONTEND_URL']}/app/login?email=#{@resource.email}&sso_auth_token=#{@resource.generate_sso_auth_token}" }
   end
 
-  def show; end
+  def show
+    # @resource.token = @resource.access_token.token
+    render json: {data: @resource, token: @resource.access_token.token}
+  end
 
   def update
     @resource.assign_attributes(user_update_params)
