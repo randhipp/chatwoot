@@ -1,6 +1,6 @@
 class Platform::Api::V1::UsersController < PlatformController
   def create
-    @resource = (User.find_by(email: user_params[:email]) || User.new(user_params))
+    @resource = (User.find_by(email: user_params[:email])  || User.new(user_params))
     @resource.confirm
     @resource.save!
     @platform_app.platform_app_permissibles.find_or_create_by(permissible: @resource)
@@ -14,7 +14,8 @@ class Platform::Api::V1::UsersController < PlatformController
   end
 
   def show
-    render json: @resource
+    # @resource.token = @resource.access_token.token
+    render json: {data: @resource, token: @resource.access_token.token}
   end
 
   def update
