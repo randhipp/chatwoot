@@ -7,12 +7,12 @@
 #  agent_last_seen_at    :datetime
 #  contact_last_seen_at  :datetime
 #  identifier            :string
-#  last_activity_at      :datetime
+#  last_activity_at      :datetime         not null
 #  locked                :boolean          default(FALSE)
 #  status                :integer          default("open"), not null
 #  uuid                  :uuid             not null
-#  created_at            :datetime
-#  updated_at            :datetime
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
 #  account_id            :integer          not null
 #  assignee_id           :integer
 #  contact_id            :bigint
@@ -36,6 +36,7 @@ class Conversation < ApplicationRecord
 
   validates :account_id, presence: true
   validates :inbox_id, presence: true
+  before_validation :validate_additional_attributes
 
   enum status: { open: 0, resolved: 1, bot: 2 }
 
@@ -135,6 +136,10 @@ class Conversation < ApplicationRecord
   end
 
   private
+
+  def validate_additional_attributes
+    self.additional_attributes = {} unless additional_attributes.is_a?(Hash)
+  end
 
   def set_bot_conversation
     self.status = :bot if inbox.agent_bot_inbox&.active?
