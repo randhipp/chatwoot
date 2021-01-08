@@ -89,9 +89,9 @@
       </div>
     </div>
     <!-- Add Agent -->
-    <woot-modal :show.sync="showAddPopup" :on-close="hideAddPopup">
+    <!-- <woot-modal :show.sync="showAddPopup" :on-close="hideAddPopup">
       <add-agent :on-close="hideAddPopup" />
-    </woot-modal>
+    </woot-modal> -->
     <!-- Edit Agent -->
     <woot-modal :show.sync="showEditPopup" :on-close="hideEditPopup">
       <edit-agent

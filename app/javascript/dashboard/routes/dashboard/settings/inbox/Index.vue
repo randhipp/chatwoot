@@ -56,7 +56,7 @@
               <!-- Action Buttons -->
               <td>
                 <div class="button-wrapper">
-                  <router-link
+                  <!-- <router-link
                     :to="addAccountScoping(`settings/inboxes/${item.id}`)"
                   >
                     <woot-submit-button
@@ -74,7 +74,7 @@
                     icon-class="ion-close-circled"
                     button-class="link hollow grey-btn"
                     @click="openDelete(item)"
-                  />
+                  /> -->
                 </div>
               </td>
             </tr>
