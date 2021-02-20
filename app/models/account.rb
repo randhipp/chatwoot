@@ -34,6 +34,7 @@ class Account < ApplicationRecord
 
   has_many :account_users, dependent: :destroy
   has_many :agent_bot_inboxes, dependent: :destroy
+  has_many :data_imports, dependent: :destroy
   has_many :users, through: :account_users
   has_many :inboxes, dependent: :destroy
   has_many :conversations, dependent: :destroy
@@ -55,6 +56,7 @@ class Account < ApplicationRecord
   has_many :kbase_portals, dependent: :destroy, class_name: '::Kbase::Portal'
   has_many :kbase_categories, dependent: :destroy, class_name: '::Kbase::Category'
   has_many :kbase_articles, dependent: :destroy, class_name: '::Kbase::Article'
+  has_many :teams, dependent: :destroy
   has_flags ACCOUNT_SETTINGS_FLAGS.merge(column: 'settings_flags').merge(DEFAULT_QUERY_SETTING)
 
   enum locale: LANGUAGES_CONFIG.map { |key, val| [val[:iso_639_1_code], key] }.to_h

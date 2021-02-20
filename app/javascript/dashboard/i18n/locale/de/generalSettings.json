@@ -42,13 +42,34 @@
         "INBOUND_EMAIL_ENABLED": "Conversation continuity with emails is enabled for your account.",
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Du kannst E-Mails jetzt von der festgelegten Domain erhalten."
       }
-    }
+    },
+    "UPDATE_CHATWOOT": "An update %{latestChatwootVersion} for Chatwoot is available. Please update your instance."
   },
   "FORMS": {
     "MULTISELECT": {
       "ENTER_TO_SELECT": "Drücke Enter zum Auswählen",
       "ENTER_TO_REMOVE": "Drücke Enter zum Entfernen",
       "SELECT_ONE": "Eine Option wählen"
+    }
+  },
+  "NOTIFICATIONS_PAGE": {
+    "HEADER": "Notifications",
+    "MARK_ALL_DONE": "Mark All Done",
+    "LIST": {
+      "LOADING_MESSAGE": "Loading notifications...",
+      "404": "No Notifications",
+      "TABLE_HEADER": [
+        "Name",
+        "Telefonnummer",
+        "Gespräche",
+        "Letzter Kontakt"
+      ]
+    },
+    "TYPE_LABEL": {
+      "conversation_creation": "New conversation",
+      "conversation_assignment": "Conversation Assigned",
+      "assigned_conversation_new_message": "New Message",
+      "conversation_mention": "Mention"
     }
   }
 }

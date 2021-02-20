@@ -2,20 +2,24 @@
 #
 # Table name: channel_web_widgets
 #
-#  id              :integer          not null, primary key
-#  feature_flags   :integer          default(3), not null
-#  reply_time      :integer          default("in_a_few_minutes")
-#  website_token   :string
-#  website_url     :string
-#  welcome_tagline :string
-#  welcome_title   :string
-#  widget_color    :string           default("#1f93ff")
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  account_id      :integer
+#  id                    :integer          not null, primary key
+#  feature_flags         :integer          default(3), not null
+#  hmac_token            :string
+#  pre_chat_form_enabled :boolean          default(FALSE)
+#  pre_chat_form_options :jsonb
+#  reply_time            :integer          default("in_a_few_minutes")
+#  website_token         :string
+#  website_url           :string
+#  welcome_tagline       :string
+#  welcome_title         :string
+#  widget_color          :string           default("#1f93ff")
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  account_id            :integer
 #
 # Indexes
 #
+#  index_channel_web_widgets_on_hmac_token     (hmac_token) UNIQUE
 #  index_channel_web_widgets_on_website_token  (website_token) UNIQUE
 #
 
@@ -30,6 +34,8 @@ class Channel::WebWidget < ApplicationRecord
   belongs_to :account
   has_one :inbox, as: :channel, dependent: :destroy
   has_secure_token :website_token
+  has_secure_token :hmac_token
+
   has_flags 1 => :attachments,
             2 => :emoji_picker,
             :column => 'feature_flags'

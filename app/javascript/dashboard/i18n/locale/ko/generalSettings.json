@@ -42,13 +42,34 @@
         "INBOUND_EMAIL_ENABLED": "계정에 대해 이메일을 통한 대화 연속성이 활성화되었습니다.",
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "지금 사용자 지정 도메인에서 이메일을 받을 수 있다."
       }
-    }
+    },
+    "UPDATE_CHATWOOT": "An update %{latestChatwootVersion} for Chatwoot is available. Please update your instance."
   },
   "FORMS": {
     "MULTISELECT": {
       "ENTER_TO_SELECT": "선택하려면 Enter 키를 누르십시오.",
       "ENTER_TO_REMOVE": "제거하려면 Enter 키를 누르십시오.",
       "SELECT_ONE": "하나 선택"
+    }
+  },
+  "NOTIFICATIONS_PAGE": {
+    "HEADER": "Notifications",
+    "MARK_ALL_DONE": "Mark All Done",
+    "LIST": {
+      "LOADING_MESSAGE": "Loading notifications...",
+      "404": "No Notifications",
+      "TABLE_HEADER": [
+        "이름",
+        "전화 번호",
+        "대화",
+        "마지막으로 연락한 사람"
+      ]
+    },
+    "TYPE_LABEL": {
+      "conversation_creation": "New conversation",
+      "conversation_assignment": "Conversation Assigned",
+      "assigned_conversation_new_message": "New Message",
+      "conversation_mention": "멘션"
     }
   }
 }

@@ -27,8 +27,10 @@ gem 'uglifier'
 gem 'flag_shih_tzu'
 # Random name generator for user names
 gem 'haikunator'
-# Template parsing safetly
+# Template parsing safely
 gem 'liquid'
+# Parse Markdown to HTML
+gem 'commonmarker'
 
 ##-- for active storage --##
 gem 'aws-sdk-s3', require: false
@@ -42,6 +44,8 @@ gem 'pg'
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rack-cache'
+# super fast record imports in bulk
+gem 'activerecord-import'
 
 ##--- gems for server & infra configuration ---##
 gem 'dotenv-rails'
@@ -85,6 +89,8 @@ gem 'sentry-raven'
 
 ##-- background job processing --##
 gem 'sidekiq'
+# We want cron jobs
+gem 'sidekiq-cron'
 
 ##-- Push notification service --##
 gem 'fcm'

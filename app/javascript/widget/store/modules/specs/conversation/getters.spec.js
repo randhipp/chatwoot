@@ -1,4 +1,4 @@
-import { getters } from '../../conversation';
+import { getters } from '../../conversation/getters';
 
 describe('#getters', () => {
   it('getConversation', () => {
@@ -14,6 +14,11 @@ describe('#getters', () => {
         content: 'hello',
       },
     });
+  });
+
+  it('getIsCreating', () => {
+    const state = { uiFlags: { isCreating: true } };
+    expect(getters.getIsCreating(state)).toEqual(true);
   });
 
   it('getConversationSize', () => {
