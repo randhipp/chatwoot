@@ -1,6 +1,6 @@
 <template>
   <div class="conv-header">
-    <div class="user" :class="{ hide: isContactPanelOpen }">
+    <div class="user">
       <Thumbnail
         :src="currentContact.thumbnail"
         size="40px"
@@ -9,7 +9,7 @@
         :status="currentContact.availability_status"
       />
       <div class="user--profile__meta">
-        <h3 v-if="!isContactPanelOpen" class="user--name text-truncate">
+        <h3 class="user--name text-truncate">
           {{ currentContact.name }}
         </h3>
         <button
@@ -17,9 +17,11 @@
           @click="$emit('contact-panel-toggle')"
         >
           {{
-            `${$t('CONVERSATION.HEADER.OPEN')} ${$t(
-              'CONVERSATION.HEADER.DETAILS'
-            )}`
+            `${
+              isContactPanelOpen
+                ? $t('CONVERSATION.HEADER.CLOSE')
+                : $t('CONVERSATION.HEADER.OPEN')
+            } ${$t('CONVERSATION.HEADER.DETAILS')}`
           }}
         </button>
       </div>
@@ -28,14 +30,16 @@
       class="header-actions-wrap"
       :class="{ 'has-open-sidebar': isContactPanelOpen }"
     >
-      <div class="multiselect-box ion-headphone">
+      <div class="multiselect-box multiselect-wrap--small">
+        <i class="icon ion-headphone" />
         <multiselect
           v-model="currentChat.meta.assignee"
+          :loading="uiFlags.isFetching"
           :allow-empty="true"
-          :deselect-label="$t('CONVERSATION.ASSIGNMENT.REMOVE')"
+          deselect-label=""
           :options="agentList"
           :placeholder="$t('CONVERSATION.ASSIGNMENT.SELECT_AGENT')"
-          :select-label="$t('CONVERSATION.ASSIGNMENT.ASSIGN')"
+          select-label=""
           label="name"
           selected-label
           track-by="id"
@@ -79,7 +83,8 @@ export default {
 
   computed: {
     ...mapGetters({
-      agents: 'agents/getVerifiedAgents',
+      getAgents: 'inboxMembers/getMembersByInbox',
+      uiFlags: 'inboxMembers/getUIFlags',
       currentChat: 'getSelectedChat',
     }),
 
@@ -94,6 +99,8 @@ export default {
     },
 
     agentList() {
+      const { inbox_id: inboxId } = this.chat;
+      const agents = this.getAgents(inboxId) || [];
       return [
         {
           confirmed: true,
@@ -103,7 +110,7 @@ export default {
           account_id: 0,
           email: 'None',
         },
-        ...this.agents,
+        ...agents,
       ];
     },
   },
@@ -130,5 +137,9 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.conv-header {
+  flex: 0 0 var(--space-jumbo);
 }
 </style>

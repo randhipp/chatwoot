@@ -38,7 +38,8 @@
         "PICK_A_VALUE": "ഒരു മൂല്യം തിരഞ്ഞെടുക്കുക"
       },
       "TWITTER": {
-        "HELP": "നിങ്ങളുടെ ട്വിറ്റർ പ്രൊഫൈൽ ഒരു ചാനലായി ചേർക്കുന്നതിന്, 'ട്വിറ്ററിനൊപ്പം പ്രവേശിക്കുക' ക്ലിക്കുചെയ്ത് നിങ്ങളുടെ ട്വിറ്റർ പ്രൊഫൈൽ പ്രാമാണീകരിക്കേണ്ടതുണ്ട് "
+        "HELP": "നിങ്ങളുടെ ട്വിറ്റർ പ്രൊഫൈൽ ഒരു ചാനലായി ചേർക്കുന്നതിന്, 'ട്വിറ്ററിനൊപ്പം പ്രവേശിക്കുക' ക്ലിക്കുചെയ്ത് നിങ്ങളുടെ ട്വിറ്റർ പ്രൊഫൈൽ പ്രാമാണീകരിക്കേണ്ടതുണ്ട് ",
+        "ERROR_MESSAGE": "There was an error connecting to Twitter, please try again"
       },
       "WEBSITE_CHANNEL": {
         "TITLE": "വെബ്‌സൈറ്റ് ചാനൽ",
@@ -193,6 +194,7 @@
       "TITLE": "നിങ്ങളുടെ ഇൻ‌ബോക്സ് തയ്യാറാണ്!",
       "MESSAGE": "നിങ്ങളുടെ പുതിയ ചാനലിലൂടെ നിങ്ങൾക്ക് ഇപ്പോൾ ഉപഭോക്താക്കളുമായി ഇടപഴകാൻ കഴിയും. പിന്തുണയ്ക്കുന്നതിൽ സന്തോഷിക്കൂ",
       "BUTTON_TEXT": "എന്നെ അവിടേക്ക് കൊണ്ടുപോകുക",
+      "MORE_SETTINGS": "More settings",
       "WEBSITE_SUCCESS": "നിങ്ങൾ ഒരു വെബ്‌സൈറ്റ് ചാനൽ സൃഷ്ടിക്കുന്നത് വിജയകരമായി പൂർത്തിയാക്കി. ചുവടെ കാണിച്ചിരിക്കുന്ന കോഡ് പകർത്തി നിങ്ങളുടെ വെബ്‌സൈറ്റിൽ ചേർക്കുക. അടുത്ത തവണ ഒരു ഉപഭോക്താവ് തത്സമയ ചാറ്റ് ഉപയോഗിക്കുമ്പോൾ, സംഭാഷണം ഓട്ടോമാറ്റിക് ആയി  നിങ്ങളുടെ ഇൻ‌ബോക്സിൽ ദൃശ്യമാകും."
     },
     "REAUTH": "വീണ്ടും അംഗീകാരം നൽകുക",
@@ -224,7 +226,9 @@
     "TABS": {
       "SETTINGS": "ക്രമീകരണങ്ങൾ",
       "COLLABORATORS": "Collaborators",
-      "CONFIGURATION": "Configuration"
+      "CONFIGURATION": "Configuration",
+      "PRE_CHAT_FORM": "Pre Chat Form",
+      "BUSINESS_HOURS": "Business Hours"
     },
     "SETTINGS": "ക്രമീകരണങ്ങൾ",
     "FEATURES": {
@@ -250,6 +254,41 @@
       "SUBTITLE": "Your Facebook connection has expired, please reconnect your Facebook page to continue services",
       "MESSAGE_SUCCESS": "Reconnection successful",
       "MESSAGE_ERROR": "ഒരു പിശക് ഉണ്ടായിരുന്നു, ദയവായി വീണ്ടും ശ്രമിക്കുക"
+    },
+    "PRE_CHAT_FORM": {
+      "DESCRIPTION": "Pre chat forms enable you to capture user information before they start conversation with you.",
+      "ENABLE": {
+        "LABEL": "Enable pre chat form",
+        "OPTIONS": {
+          "ENABLED": "Yes",
+          "DISABLED": "No"
+        }
+      },
+      "PRE_CHAT_MESSAGE": {
+        "LABEL": "Pre Chat Message",
+        "PLACEHOLDER": "This message would be visible to the users along with the form"
+      },
+      "REQUIRE_EMAIL": {
+        "LABEL": "Visitors should provide their name and email address before starting the chat"
+      }
+    },
+    "BUSINESS_HOURS": {
+      "TITLE": "Set your availability",
+      "SUBTITLE": "Set your availability on your livechat widget",
+      "WEEKLY_TITLE": "Set your weekly hours",
+      "TIMEZONE_LABEL": "Select timezone",
+      "UPDATE": "Update business hours settings",
+      "TOGGLE_AVAILABILITY": "Enable business availability for this inbox",
+      "UNAVAILABLE_MESSAGE_LABEL": "Unavailable message for vistors",
+      "UNAVAILABLE_MESSAGE_DEFAULT": "We are unavailable at the moment. Leave a message we will respond once we are back.",
+      "TOGGLE_HELP": "Enabling business availability will show the available hours on live chat widget even if all the agents are offline. Outside available hours vistors can be warned with a message and a pre-chat form.",
+      "DAY": {
+        "ENABLE": "Enable availability for this day",
+        "UNAVAILABLE": "Unavailable",
+        "HOURS": "hours",
+        "VALIDATION_ERROR": "Starting time should be before closing time.",
+        "CHOOSE": "Choose"
+      }
     }
   }
 }

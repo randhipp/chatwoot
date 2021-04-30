@@ -12,6 +12,7 @@
     "INITIATED_FROM": "Initiated from",
     "INITIATED_AT": "Initiated at",
     "IP_ADDRESS": "IP Address",
+    "NEW_MESSAGE": "New message",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "ไม่มีการสนทนาก่อนหน้านี้ที่เชื่อมโยงกับผู้ติดต่อนี้",
       "TITLE": "การสนทนาก่อนหน้า"
@@ -43,7 +44,14 @@
   "EDIT_CONTACT": {
     "BUTTON_LABEL": "เเก้ไขผู้ติดต่อ",
     "TITLE": "เเก้ไขผู้ติดต่อ",
-    "DESC": "เเห้ไขรายละเอียดผู้ติดต่อ",
+    "DESC": "เเห้ไขรายละเอียดผู้ติดต่อ"
+  },
+  "CREATE_CONTACT": {
+    "BUTTON_LABEL": "New Contact",
+    "TITLE": "Create new contact",
+    "DESC": "Add basic information details about the contact."
+  },
+  "CONTACT_FORM": {
     "FORM": {
       "SUBMIT": "ส่ง",
       "CANCEL": "ยกเลิก",
@@ -64,7 +72,9 @@
       },
       "PHONE_NUMBER": {
         "PLACEHOLDER": "กรอกหมายเลขโทรศัพท์ผู้ติดต่อ",
-        "LABEL": "หมายเลขโทรศัพท์"
+        "LABEL": "หมายเลขโทรศัพท์",
+        "HELP": "Phone number should be of E.164 format eg: +1415555555 [+][country code][area code][local phone number]",
+        "ERROR": "Phone number should be either empty or of E.164 format"
       },
       "LOCATION": {
         "PLACEHOLDER": "กรอกที่อยู่ผู้ติดต่อ",
@@ -93,9 +103,33 @@
         }
       }
     },
-    "SUCCESS_MESSAGE": "อัพเดทเนื้อหาเสร็จสิ้น",
+    "SUCCESS_MESSAGE": "Contact saved successfully",
     "CONTACT_ALREADY_EXIST": "อีเมล์นี้ถูกใช้ในผู้ติดต่อคนอื่นเเล้ว",
-    "ERROR_MESSAGE": "มีปัญหาในการอัพเดทผู้ติดต่อ กรุณาลองใหม่อีกครั้ง"
+    "ERROR_MESSAGE": "เกิดข้อผิดพลาดกรุณาลองใหม่อีกครั้ง"
+  },
+  "NEW_CONVERSATION": {
+    "BUTTON_LABEL": "Start conversation",
+    "TITLE": "New conversation",
+    "DESC": "Start a new conversation by sending a new message.",
+    "NO_INBOX": "Couldn't find an inbox to initiate a new conversation with this contact.",
+    "FORM": {
+      "TO": {
+        "LABEL": "To"
+      },
+      "INBOX": {
+        "LABEL": "Inbox",
+        "ERROR": "Select an inbox"
+      },
+      "MESSAGE": {
+        "LABEL": "Message",
+        "PLACEHOLDER": "Write your message here",
+        "ERROR": "Message can't be empty"
+      },
+      "SUBMIT": "Send message",
+      "CANCEL": "ยกเลิก",
+      "SUCCESS_MESSAGE": "Message sent!",
+      "ERROR_MESSAGE": "Couldn't send! try again"
+    }
   },
   "CONTACTS_PAGE": {
     "HEADER": "Contacts",
@@ -104,12 +138,18 @@
     "LIST": {
       "LOADING_MESSAGE": "Loading contacts...",
       "404": "No contacts matches your search 🔍",
-      "TABLE_HEADER": [
-        "ชื่อ",
-        "หมายเลขโทรศัพท์",
-        "การสนทนา",
-        "Last Contacted"
-      ]
+      "TABLE_HEADER": {
+        "NAME": "ชื่อ",
+        "PHONE_NUMBER": "หมายเลขโทรศัพท์",
+        "CONVERSATIONS": "การสนทนา",
+        "LAST_ACTIVITY": "Last Activity",
+        "COUNTRY": "Country",
+        "CITY": "City",
+        "SOCIAL_PROFILES": "Social Profiles",
+        "COMPANY": "บริษัท",
+        "EMAIL_ADDRESS": "ที่อยู่อีเมล์"
+      },
+      "VIEW_DETAILS": "View details"
     }
   }
 }

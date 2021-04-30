@@ -6,12 +6,13 @@
     "COPY_SUCCESSFUL": "Kopierat till urklipp",
     "COMPANY": "Företag",
     "LOCATION": "Plats",
-    "CONVERSATION_TITLE": "Konversation Detaljer",
+    "CONVERSATION_TITLE": "Konversationsdetaljer",
     "BROWSER": "Webbläsare",
     "OS": "Operativsystem",
     "INITIATED_FROM": "Initierad från",
     "INITIATED_AT": "Initierad den",
     "IP_ADDRESS": "IP-adress",
+    "NEW_MESSAGE": "New message",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "Det finns inga tidigare konversationer kopplade till denna kontakt.",
       "TITLE": "Tidigare konversationer"
@@ -43,7 +44,14 @@
   "EDIT_CONTACT": {
     "BUTTON_LABEL": "Redigera kontakt",
     "TITLE": "Redigera kontakt",
-    "DESC": "Redigera kontaktuppgifter",
+    "DESC": "Redigera kontaktuppgifter"
+  },
+  "CREATE_CONTACT": {
+    "BUTTON_LABEL": "New Contact",
+    "TITLE": "Create new contact",
+    "DESC": "Add basic information details about the contact."
+  },
+  "CONTACT_FORM": {
     "FORM": {
       "SUBMIT": "Skicka",
       "CANCEL": "Avbryt",
@@ -64,7 +72,9 @@
       },
       "PHONE_NUMBER": {
         "PLACEHOLDER": "Ange telefonnummer till kontakten",
-        "LABEL": "Telefonnummer"
+        "LABEL": "Telefonnummer",
+        "HELP": "Phone number should be of E.164 format eg: +1415555555 [+][country code][area code][local phone number]",
+        "ERROR": "Phone number should be either empty or of E.164 format"
       },
       "LOCATION": {
         "PLACEHOLDER": "Ange platsen för kontakten",
@@ -93,9 +103,33 @@
         }
       }
     },
-    "SUCCESS_MESSAGE": "Kontakten har uppdaterats",
+    "SUCCESS_MESSAGE": "Contact saved successfully",
     "CONTACT_ALREADY_EXIST": "Den här e-postadressen används för en annan kontakt.",
-    "ERROR_MESSAGE": "Ett fel uppstod vid uppdateringen av kontakten, vänligen försök igen"
+    "ERROR_MESSAGE": "Ett fel uppstod, vänligen försök igen"
+  },
+  "NEW_CONVERSATION": {
+    "BUTTON_LABEL": "Start conversation",
+    "TITLE": "Ny konversation",
+    "DESC": "Start a new conversation by sending a new message.",
+    "NO_INBOX": "Couldn't find an inbox to initiate a new conversation with this contact.",
+    "FORM": {
+      "TO": {
+        "LABEL": "To"
+      },
+      "INBOX": {
+        "LABEL": "Inbox",
+        "ERROR": "Select an inbox"
+      },
+      "MESSAGE": {
+        "LABEL": "Message",
+        "PLACEHOLDER": "Write your message here",
+        "ERROR": "Message can't be empty"
+      },
+      "SUBMIT": "Send message",
+      "CANCEL": "Avbryt",
+      "SUCCESS_MESSAGE": "Message sent!",
+      "ERROR_MESSAGE": "Couldn't send! try again"
+    }
   },
   "CONTACTS_PAGE": {
     "HEADER": "Kontakter",
@@ -104,12 +138,18 @@
     "LIST": {
       "LOADING_MESSAGE": "Laddar kontakter...",
       "404": "Inga kontakter matchar din sökning 🔍",
-      "TABLE_HEADER": [
-        "Namn",
-        "Telefonnummer",
-        "Konversationer",
-        "Senast kontaktad"
-      ]
+      "TABLE_HEADER": {
+        "NAME": "Namn",
+        "PHONE_NUMBER": "Telefonnummer",
+        "CONVERSATIONS": "Konversationer",
+        "LAST_ACTIVITY": "Last Activity",
+        "COUNTRY": "Country",
+        "CITY": "City",
+        "SOCIAL_PROFILES": "Social Profiles",
+        "COMPANY": "Företag",
+        "EMAIL_ADDRESS": "E-postadress"
+      },
+      "VIEW_DETAILS": "View details"
     }
   }
 }

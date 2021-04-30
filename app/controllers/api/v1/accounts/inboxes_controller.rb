@@ -8,6 +8,10 @@ class Api::V1::Accounts::InboxesController < Api::V1::Accounts::BaseController
     @inboxes = policy_scope(Current.account.inboxes.order_by_name.includes(:channel, { avatar_attachment: [:blob] }))
   end
 
+  def assignable_agents
+    @assignable_agents = (Current.account.users.where(id: @inbox.members.select(:user_id)) + Current.account.administrators).uniq
+  end
+
   def create
     ActiveRecord::Base.transaction do
       channel = create_channel
@@ -24,6 +28,7 @@ class Api::V1::Accounts::InboxesController < Api::V1::Accounts::BaseController
 
   def update
     @inbox.update(inbox_update_params.except(:channel))
+    @inbox.update_working_hours(params.permit(working_hours: Inbox::OFFISABLE_ATTRS)[:working_hours]) if params[:working_hours]
     return unless @inbox.channel.is_a?(Channel::WebWidget) && inbox_update_params[:channel].present?
 
     @inbox.channel.update!(inbox_update_params[:channel])
@@ -81,7 +86,7 @@ class Api::V1::Accounts::InboxesController < Api::V1::Accounts::BaseController
 
   def inbox_update_params
     params.permit(:enable_auto_assignment, :name, :avatar, :greeting_message, :greeting_enabled,
-                  :working_hours_enabled, :out_of_office_message,
+                  :working_hours_enabled, :out_of_office_message, :timezone,
                   channel: [
                     :website_url,
                     :widget_color,

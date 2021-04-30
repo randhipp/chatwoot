@@ -12,6 +12,7 @@
     "INITIATED_FROM": "啟動自：",
     "INITIATED_AT": "發起於",
     "IP_ADDRESS": "IP Address",
+    "NEW_MESSAGE": "New message",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "此聯繫人没有關聯到以前的會話。",
       "TITLE": "上一次對話"
@@ -43,7 +44,14 @@
   "EDIT_CONTACT": {
     "BUTTON_LABEL": "編輯聯絡人",
     "TITLE": "編輯聯絡人",
-    "DESC": "編輯聯絡人資訊",
+    "DESC": "編輯聯絡人資訊"
+  },
+  "CREATE_CONTACT": {
+    "BUTTON_LABEL": "New Contact",
+    "TITLE": "Create new contact",
+    "DESC": "Add basic information details about the contact."
+  },
+  "CONTACT_FORM": {
     "FORM": {
       "SUBMIT": "送出",
       "CANCEL": "取消操作",
@@ -64,7 +72,9 @@
       },
       "PHONE_NUMBER": {
         "PLACEHOLDER": "請輸入聯絡人電話",
-        "LABEL": "聯絡人電話"
+        "LABEL": "聯絡人電話",
+        "HELP": "Phone number should be of E.164 format eg: +1415555555 [+][country code][area code][local phone number]",
+        "ERROR": "Phone number should be either empty or of E.164 format"
       },
       "LOCATION": {
         "PLACEHOLDER": "請輸入聯絡人位置",
@@ -93,9 +103,33 @@
         }
       }
     },
-    "SUCCESS_MESSAGE": "成功更新聯絡人資訊",
+    "SUCCESS_MESSAGE": "Contact saved successfully",
     "CONTACT_ALREADY_EXIST": "這個電子信箱已經被其他聯絡人使用了。",
-    "ERROR_MESSAGE": "更新聯絡人資訊發生錯誤，請重試"
+    "ERROR_MESSAGE": "出現錯誤，請重試"
+  },
+  "NEW_CONVERSATION": {
+    "BUTTON_LABEL": "Start conversation",
+    "TITLE": "New conversation",
+    "DESC": "Start a new conversation by sending a new message.",
+    "NO_INBOX": "Couldn't find an inbox to initiate a new conversation with this contact.",
+    "FORM": {
+      "TO": {
+        "LABEL": "To"
+      },
+      "INBOX": {
+        "LABEL": "Inbox",
+        "ERROR": "Select an inbox"
+      },
+      "MESSAGE": {
+        "LABEL": "Message",
+        "PLACEHOLDER": "Write your message here",
+        "ERROR": "Message can't be empty"
+      },
+      "SUBMIT": "Send message",
+      "CANCEL": "取消操作",
+      "SUCCESS_MESSAGE": "Message sent!",
+      "ERROR_MESSAGE": "Couldn't send! try again"
+    }
   },
   "CONTACTS_PAGE": {
     "HEADER": "Contacts",
@@ -104,12 +138,18 @@
     "LIST": {
       "LOADING_MESSAGE": "Loading contacts...",
       "404": "No contacts matches your search 🔍",
-      "TABLE_HEADER": [
-        "姓名：",
-        "聯絡人電話",
-        "會話",
-        "Last Contacted"
-      ]
+      "TABLE_HEADER": {
+        "NAME": "姓名：",
+        "PHONE_NUMBER": "聯絡人電話",
+        "CONVERSATIONS": "會話",
+        "LAST_ACTIVITY": "Last Activity",
+        "COUNTRY": "Country",
+        "CITY": "City",
+        "SOCIAL_PROFILES": "Social Profiles",
+        "COMPANY": "Company",
+        "EMAIL_ADDRESS": "電子信箱地址"
+      },
+      "VIEW_DETAILS": "View details"
     }
   }
 }

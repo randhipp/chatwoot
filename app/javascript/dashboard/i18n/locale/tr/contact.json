@@ -12,6 +12,7 @@
     "INITIATED_FROM": "Başlatıldı",
     "INITIATED_AT": "Başlatıldı",
     "IP_ADDRESS": "IP Adresi",
+    "NEW_MESSAGE": "New message",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "Bu kişiyle ilişkilendirilmiş önceki görüşme yok.",
       "TITLE": "Önceki Sohbetler"
@@ -43,7 +44,14 @@
   "EDIT_CONTACT": {
     "BUTTON_LABEL": "Kişiyi Düzenle",
     "TITLE": "Kişiyi Düzenle",
-    "DESC": "İletişim bilgilerini düzenleyin",
+    "DESC": "İletişim bilgilerini düzenleyin"
+  },
+  "CREATE_CONTACT": {
+    "BUTTON_LABEL": "Yeni Kişi",
+    "TITLE": "Yeni kişi oluştur",
+    "DESC": "Kişi hakkındaki temel bilgileri giriniz."
+  },
+  "CONTACT_FORM": {
     "FORM": {
       "SUBMIT": "Yolla",
       "CANCEL": "İptal Et",
@@ -64,7 +72,9 @@
       },
       "PHONE_NUMBER": {
         "PLACEHOLDER": "Kişinin telefon numarasını girin",
-        "LABEL": "Telefon numarası"
+        "LABEL": "Telefon numarası",
+        "HELP": "Phone number should be of E.164 format eg: +1415555555 [+][country code][area code][local phone number]",
+        "ERROR": "Phone number should be either empty or of E.164 format"
       },
       "LOCATION": {
         "PLACEHOLDER": "Kişinin konumunu girin",
@@ -93,9 +103,33 @@
         }
       }
     },
-    "SUCCESS_MESSAGE": "Kişi başarıyla güncellendi",
+    "SUCCESS_MESSAGE": "Kişi bilgileri başarıyla kaydedildi",
     "CONTACT_ALREADY_EXIST": "Bu e-posta adresi başka bir kişi için kullanılıyor.",
-    "ERROR_MESSAGE": "Kişi güncellenirken bir hata oluştu, lütfen tekrar deneyin"
+    "ERROR_MESSAGE": "Bir hata oluştu, lütfen tekrar deneyin"
+  },
+  "NEW_CONVERSATION": {
+    "BUTTON_LABEL": "Start conversation",
+    "TITLE": "Yeni görüşme",
+    "DESC": "Start a new conversation by sending a new message.",
+    "NO_INBOX": "Couldn't find an inbox to initiate a new conversation with this contact.",
+    "FORM": {
+      "TO": {
+        "LABEL": "To"
+      },
+      "INBOX": {
+        "LABEL": "Inbox",
+        "ERROR": "Select an inbox"
+      },
+      "MESSAGE": {
+        "LABEL": "Message",
+        "PLACEHOLDER": "Write your message here",
+        "ERROR": "Message can't be empty"
+      },
+      "SUBMIT": "Send message",
+      "CANCEL": "İptal Et",
+      "SUCCESS_MESSAGE": "Message sent!",
+      "ERROR_MESSAGE": "Couldn't send! try again"
+    }
   },
   "CONTACTS_PAGE": {
     "HEADER": "Kişiler",
@@ -104,12 +138,18 @@
     "LIST": {
       "LOADING_MESSAGE": "Kişiler yükleniyor ...",
       "404": "Aramanızla eşleşen kişi yok 🔍",
-      "TABLE_HEADER": [
-        "İsim",
-        "Telefon numarası",
-        "Konuşmalar",
-        "Son Görüşülen"
-      ]
+      "TABLE_HEADER": {
+        "NAME": "İsim",
+        "PHONE_NUMBER": "Telefon numarası",
+        "CONVERSATIONS": "Konuşmalar",
+        "LAST_ACTIVITY": "Son aktivite",
+        "COUNTRY": "Ülke",
+        "CITY": "Şehir",
+        "SOCIAL_PROFILES": "Social Profiles",
+        "COMPANY": "Şirket",
+        "EMAIL_ADDRESS": "E-posta adresi"
+      },
+      "VIEW_DETAILS": "Detayları göster"
     }
   }
 }

@@ -12,6 +12,7 @@
     "INITIATED_FROM": "Αρχικοποίηση από",
     "INITIATED_AT": "Αρχικοποίηση τις",
     "IP_ADDRESS": "Διεύθυνση IP",
+    "NEW_MESSAGE": "New message",
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "Δεν υπάρχουν προηγούμενες συνομιλίες που σχετίζονται με αυτήν την επαφή.",
       "TITLE": "Προηγούμενες συνομιλίες"
@@ -43,7 +44,14 @@
   "EDIT_CONTACT": {
     "BUTTON_LABEL": "Επεξεργασία Επαφής",
     "TITLE": "Επεξεργασία επαφής",
-    "DESC": "Επεξεργασία λεπτομερειών επαφής",
+    "DESC": "Επεξεργασία λεπτομερειών επαφής"
+  },
+  "CREATE_CONTACT": {
+    "BUTTON_LABEL": "Νέα Επαφή",
+    "TITLE": "Δημιουργία νέας επαφής",
+    "DESC": "Προσθήκη βασικών πληροφοριών για την επαφή."
+  },
+  "CONTACT_FORM": {
     "FORM": {
       "SUBMIT": "Καταχώρηση",
       "CANCEL": "Άκυρο",
@@ -64,7 +72,9 @@
       },
       "PHONE_NUMBER": {
         "PLACEHOLDER": "Εισάγετε τον αριθμό τηλεφώνου της επαφής",
-        "LABEL": "Αριθμός Τηλεφώνου"
+        "LABEL": "Αριθμός Τηλεφώνου",
+        "HELP": "Ο αριθμός τηλεφώνου πρέπει να έχει μορφή E.164 π.χ.: +14155555 [+][κωδικός χώρας][κωδικός περιοχής][αριθμός τοπικού τηλεφώνου]",
+        "ERROR": "Ο αριθμός τηλεφώνου πρέπει να είναι είτε άδειος είτε με μορφή E.164"
       },
       "LOCATION": {
         "PLACEHOLDER": "Εισάγετε την τοποθεσία της επαφής",
@@ -93,9 +103,33 @@
         }
       }
     },
-    "SUCCESS_MESSAGE": "Η επαφή ενημερώθηκε επιτυχώς",
+    "SUCCESS_MESSAGE": "Η επαφή αποθηκεύτηκε με επιτυχία",
     "CONTACT_ALREADY_EXIST": "Η διεύθυνση email είναι σε χρήση από άλλη επαφή.",
-    "ERROR_MESSAGE": "Παρουσιάστηκε σφάλμα κατά την ενημέρωση της επαφής, παρακαλώ προσπαθήστε ξανά"
+    "ERROR_MESSAGE": "Υπήρξε ένα σφάλμα, παρακαλώ προσπαθήστε ξανά"
+  },
+  "NEW_CONVERSATION": {
+    "BUTTON_LABEL": "Start conversation",
+    "TITLE": "Νέα συνομιλία",
+    "DESC": "Start a new conversation by sending a new message.",
+    "NO_INBOX": "Couldn't find an inbox to initiate a new conversation with this contact.",
+    "FORM": {
+      "TO": {
+        "LABEL": "To"
+      },
+      "INBOX": {
+        "LABEL": "Inbox",
+        "ERROR": "Select an inbox"
+      },
+      "MESSAGE": {
+        "LABEL": "Μήνυμα",
+        "PLACEHOLDER": "Write your message here",
+        "ERROR": "Message can't be empty"
+      },
+      "SUBMIT": "Send message",
+      "CANCEL": "Άκυρο",
+      "SUCCESS_MESSAGE": "Message sent!",
+      "ERROR_MESSAGE": "Couldn't send! try again"
+    }
   },
   "CONTACTS_PAGE": {
     "HEADER": "Επαφές",
@@ -104,12 +138,18 @@
     "LIST": {
       "LOADING_MESSAGE": "Φόρτωση επαφών...",
       "404": "Δεν υπάρχουν επαφές που να αντιστοιχούν με την αναζήτησή σας 🔍",
-      "TABLE_HEADER": [
-        "Όνομα",
-        "Αριθμός Τηλεφώνου",
-        "Συζητήσεις",
-        "Τελευταία επικοινωνία"
-      ]
+      "TABLE_HEADER": {
+        "NAME": "Όνομα",
+        "PHONE_NUMBER": "Αριθμός Τηλεφώνου",
+        "CONVERSATIONS": "Συζητήσεις",
+        "LAST_ACTIVITY": "Τελευταία Δραστηριότητα",
+        "COUNTRY": "Χώρα",
+        "CITY": "Πόλη",
+        "SOCIAL_PROFILES": "Social Profiles",
+        "COMPANY": "Εταιρία",
+        "EMAIL_ADDRESS": "Διεύθυνση Email"
+      },
+      "VIEW_DETAILS": "Προβολή λεπτομεριών"
     }
   }
 }

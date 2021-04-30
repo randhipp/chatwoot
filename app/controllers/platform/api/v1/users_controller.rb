@@ -10,7 +10,6 @@ class Platform::Api::V1::UsersController < PlatformController
     @resource.confirm
     @resource.save!
     @platform_app.platform_app_permissibles.find_or_create_by(permissible: @resource)
-    render json: @resource
   end
 
   def login
@@ -24,7 +23,6 @@ class Platform::Api::V1::UsersController < PlatformController
 
   def update
     @resource.update!(user_params)
-    render json: @resource
   end
 
   def destroy

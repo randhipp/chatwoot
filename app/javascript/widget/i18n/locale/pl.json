@@ -10,7 +10,7 @@
   },
   "TEAM_AVAILABILITY": {
     "ONLINE": "Jesteśmy dostępni",
-    "OFFLINE": "Jesteśmy offline"
+    "OFFLINE": "We are away at the moment"
   },
   "REPLY_TIME": {
     "IN_A_FEW_MINUTES": "Zwykle odpowiadamy w ciągu paru minut",
@@ -29,5 +29,25 @@
   "EMAIL_PLACEHOLDER": "Wprowadź swój adres e-mail",
   "CHAT_PLACEHOLDER": "Wpisz treść wiadomości",
   "TODAY": "Dzisiaj",
-  "YESTERDAY": "Wczoraj"
+  "YESTERDAY": "Wczoraj",
+  "PRE_CHAT_FORM": {
+    "FIELDS": {
+      "FULL_NAME": {
+        "LABEL": "Pełna nazwa (imię i nazwisko)",
+        "PLACEHOLDER": "Podaj swoje imię i nazwisko",
+        "ERROR": "Pełne imię i nazwisko jest wymagane"
+      },
+      "EMAIL_ADDRESS": {
+        "LABEL": "Adres e-mail",
+        "PLACEHOLDER": "Wprowadź swój adres e-mail",
+        "ERROR": "Nieprawidłowy adres e-mail"
+      },
+      "MESSAGE": {
+        "LABEL": "Wiadomość",
+        "PLACEHOLDER": "Wprowadź swoją wiadomość",
+        "ERROR": "Wiadomość za krótka"
+      }
+    }
+  },
+  "FILE_SIZE_LIMIT": "File exceeds the {MAXIMUM_FILE_UPLOAD_SIZE} attachment limit"
 }

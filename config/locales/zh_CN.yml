@@ -29,6 +29,11 @@ zh_CN:
       failed: 注册失败
   reports:
     period: Reporting period %{since} to %{until}
+    agent_csv:
+      agent_name: Agent name
+      conversations_count: Conversations count
+      avg_first_response_time: Avg first response time (Minutes)
+      avg_resolution_time: Avg resolution time (Minutes)
   notifications:
     notification_title:
       conversation_creation: "[New conversation] - #%{display_id} has been created in %{inbox_name}"
@@ -42,11 +47,16 @@ zh_CN:
       status:
         resolved: "对话被标记由 %{user_name} 解决"
         open: "对话被 %{user_name} 重新打开"
+        bot: "Conversation was transferred to bot by %{user_name}"
         auto_resolved: "Conversation was marked resolved by system due to %{duration} days of inactivity"
       assignee:
         self_assigned: "%{user_name} self-assigned this conversation"
         assigned: "由 %{assignee_name} 分配给 %{user_name}"
         removed: "对话未被 %{user_name} 分配"
+      team:
+        assigned: "由 %{team_name} 分配给 %{user_name}"
+        assigned_with_assignee: "Assigned to %{assignee_name} via %{team_name} by %{user_name}"
+        removed: "Unassigned from %{team_name} by %{user_name}"
       labels:
         added: "%{user_name} added %{labels}"
         removed: "%{user_name} removed %{labels}"
