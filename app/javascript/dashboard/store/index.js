@@ -7,6 +7,7 @@ import auth from './modules/auth';
 import cannedResponse from './modules/cannedResponse';
 import contactConversations from './modules/contactConversations';
 import contacts from './modules/contacts';
+import contactLabels from './modules/contactLabels';
 import notifications from './modules/notifications';
 import conversationLabels from './modules/conversationLabels';
 import conversationMetadata from './modules/conversationMetadata';
@@ -18,6 +19,7 @@ import conversationTypingStatus from './modules/conversationTypingStatus';
 import globalConfig from 'shared/store/globalConfig';
 import inboxes from './modules/inboxes';
 import inboxMembers from './modules/inboxMembers';
+import inboxAssignableAgents from './modules/inboxAssignableAgents';
 import integrations from './modules/integrations';
 import labels from './modules/labels';
 import reports from './modules/reports';
@@ -25,6 +27,8 @@ import userNotificationSettings from './modules/userNotificationSettings';
 import webhooks from './modules/webhooks';
 import teams from './modules/teams';
 import teamMembers from './modules/teamMembers';
+import campaigns from './modules/campaigns';
+import contactNotes from './modules/contactNotes';
 
 Vue.use(Vuex);
 export default new Vuex.Store({
@@ -35,6 +39,7 @@ export default new Vuex.Store({
     cannedResponse,
     contactConversations,
     contacts,
+    contactLabels,
     notifications,
     conversationLabels,
     conversationMetadata,
@@ -46,6 +51,7 @@ export default new Vuex.Store({
     globalConfig,
     inboxes,
     inboxMembers,
+    inboxAssignableAgents,
     integrations,
     labels,
     reports,
@@ -53,5 +59,7 @@ export default new Vuex.Store({
     webhooks,
     teams,
     teamMembers,
+    campaigns,
+    contactNotes,
   },
 });

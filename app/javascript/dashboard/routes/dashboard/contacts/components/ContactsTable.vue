@@ -7,11 +7,16 @@
       :columns="columns"
       :table-data="tableData"
       :border-around="false"
+      :sort-option="sortOption"
     />
 
     <empty-state
       v-if="showSearchEmptyState"
       :title="$t('CONTACTS_PAGE.LIST.404')"
+    />
+    <empty-state
+      v-else-if="!isLoading && !contacts.length"
+      :title="$t('CONTACTS_PAGE.LIST.NO_CONTACTS')"
     />
     <div v-if="isLoading" class="contacts--loader">
       <spinner />
@@ -57,6 +62,23 @@ export default {
       type: [String, Number],
       default: '',
     },
+    sortParam: {
+      type: String,
+      default: 'name',
+    },
+    sortOrder: {
+      type: String,
+      default: 'asc',
+    },
+  },
+  data() {
+    return {
+      sortConfig: {},
+      sortOption: {
+        sortAlways: true,
+        sortChange: params => this.$emit('on-sort-change', params),
+      },
+    };
   },
   data() {
     return {
@@ -188,20 +210,168 @@ export default {
         return [];
       }
       return this.contacts.map(item => {
+        // Note: The attributes used here is in snake case
+        // as it simplier the sort attribute calculation
         const additional = item.additional_attributes || {};
-        const { last_seen_at: lastSeenAt } = item;
+        const { last_activity_at: lastActivityAt } = item;
         return {
           ...item,
-          phone: item.phone_number || '---',
+          phone_number: item.phone_number || '---',
           company: additional.company_name || '---',
           location: additional.location || '---',
           profiles: additional.social_profiles || {},
           city: additional.city || '---',
           country: additional.country || '---',
-          conversationsCount: item.conversations_count || '---',
-          lastSeen: lastSeenAt ? this.dynamicTime(lastSeenAt) : '---',
+          conversations_count: item.conversations_count || '---',
+          last_activity_at: lastActivityAt
+            ? this.dynamicTime(lastActivityAt)
+            : '---',
         };
       });
+    },
+    columns() {
+      return [
+        {
+          field: 'name',
+          key: 'name',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.NAME'),
+          fixed: 'left',
+          align: 'left',
+          sortBy: this.sortConfig.name || '',
+          width: 300,
+          renderBodyCell: ({ row }) => (
+            <woot-button
+              variant="clear"
+              onClick={() => this.onClickContact(row.id)}
+            >
+              <div class="row--user-block">
+                <Thumbnail
+                  src={row.thumbnail}
+                  size="32px"
+                  username={row.name}
+                  status={row.availability_status}
+                />
+                <div class="user-block">
+                  <h6 class="sub-block-title user-name text-truncate">
+                    {row.name}
+                  </h6>
+                  <span class="button clear small link">
+                    {this.$t('CONTACTS_PAGE.LIST.VIEW_DETAILS')}
+                  </span>
+                </div>
+              </div>
+            </woot-button>
+          ),
+        },
+        {
+          field: 'email',
+          key: 'email',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.EMAIL_ADDRESS'),
+          align: 'left',
+          sortBy: this.sortConfig.email || '',
+          width: 240,
+          renderBodyCell: ({ row }) => {
+            if (row.email)
+              return (
+                <div class="text-truncate">
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                    href={`mailto:${row.email}`}
+                  >
+                    {row.email}
+                  </a>
+                </div>
+              );
+            return '---';
+          },
+        },
+        {
+          field: 'phone_number',
+          key: 'phone_number',
+          sortBy: this.sortConfig.phone_number || '',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.PHONE_NUMBER'),
+          align: 'left',
+        },
+        {
+          field: 'company',
+          key: 'company',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.COMPANY'),
+          align: 'left',
+        },
+        {
+          field: 'city',
+          key: 'city',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.CITY'),
+          align: 'left',
+        },
+        {
+          field: 'country',
+          key: 'country',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.COUNTRY'),
+          align: 'left',
+        },
+        {
+          field: 'profiles',
+          key: 'profiles',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.SOCIAL_PROFILES'),
+          align: 'left',
+          renderBodyCell: ({ row }) => {
+            const { profiles } = row;
+
+            const items = Object.keys(profiles);
+
+            if (!items.length) return '---';
+
+            return (
+              <div class="cell--social-profiles">
+                {items.map(
+                  profile =>
+                    profiles[profile] && (
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer nofollow"
+                        href={`https://${profile}.com/${profiles[profile]}`}
+                      >
+                        <i class={`ion-social-${profile}`} />
+                      </a>
+                    )
+                )}
+              </div>
+            );
+          },
+        },
+        {
+          field: 'last_activity_at',
+          key: 'last_activity_at',
+          sortBy: this.sortConfig.last_activity_at || '',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.LAST_ACTIVITY'),
+          align: 'left',
+        },
+        {
+          field: 'conversationsCount',
+          key: 'conversationsCount',
+          title: this.$t('CONTACTS_PAGE.LIST.TABLE_HEADER.CONVERSATIONS'),
+          width: 150,
+          align: 'left',
+        },
+      ];
+    },
+  },
+  watch: {
+    sortOrder() {
+      this.setSortConfig();
+    },
+    sortParam() {
+      this.setSortConfig();
+    },
+  },
+  mounted() {
+    this.setSortConfig();
+  },
+  methods: {
+    setSortConfig() {
+      this.sortConfig = { [this.sortParam]: this.sortOrder };
     },
   },
 };
@@ -225,6 +395,10 @@ export default {
     display: flex;
     text-align: left;
 
+    .user-block {
+      min-width: 0;
+    }
+
     .user-thumbnail-box {
       margin-right: var(--space-small);
     }
@@ -245,11 +419,14 @@ export default {
   }
 
   .ve-table-body-td {
-    padding: var(--space-slab) var(--space-two) !important;
+    padding: var(--space-small) var(--space-two) !important;
   }
 
   .ve-table-header-th {
     font-size: var(--font-size-mini) !important;
+  }
+  .ve-table-sort {
+    top: -4px;
   }
 }
 

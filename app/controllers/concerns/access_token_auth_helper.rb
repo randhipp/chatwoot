@@ -17,10 +17,6 @@ module AccessTokenAuthHelper
     Current.user = @resource if current_user.is_a?(User)
   end
 
-  def super_admin?
-    @resource.present? && @resource.is_a?(SuperAdmin)
-  end
-
   def validate_bot_access_token!
     return if Current.user.is_a?(User)
     return if super_admin?

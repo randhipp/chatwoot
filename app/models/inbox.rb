@@ -6,8 +6,10 @@
 #
 #  id                     :integer          not null, primary key
 #  channel_type           :string
+#  csat_survey_enabled    :boolean          default(FALSE)
 #  email_address          :string
 #  enable_auto_assignment :boolean          default(TRUE)
+#  enable_email_collect   :boolean          default(TRUE)
 #  greeting_enabled       :boolean          default(FALSE)
 #  greeting_message       :string
 #  name                   :string           not null
@@ -36,6 +38,7 @@ class Inbox < ApplicationRecord
 
   belongs_to :channel, polymorphic: true, dependent: :destroy
 
+  has_many :campaigns, dependent: :destroy
   has_many :contact_inboxes, dependent: :destroy
   has_many :contacts, through: :contact_inboxes
 
