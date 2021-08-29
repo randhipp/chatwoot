@@ -222,7 +222,7 @@ export default {
           profiles: additional.social_profiles || {},
           city: additional.city || '---',
           country: additional.country || '---',
-          conversations_count: item.conversations_count || '---',
+          conversationsCount: item.conversations_count || '---',
           last_activity_at: lastActivityAt
             ? this.dynamicTime(lastActivityAt)
             : '---',
