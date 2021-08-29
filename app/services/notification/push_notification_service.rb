@@ -84,7 +84,9 @@ class Notification::PushNotificationService
         body: notification.push_message_title
       },
       data: { notification: notification.push_event_data.to_json },
-      collapse_key: "chatwoot_#{notification.primary_actor_type.downcase}_#{notification.primary_actor_id}"
+      collapse_key: "chatwoot_#{notification.primary_actor_type.downcase}_#{notification.primary_actor_id}",
+      android:{"priority":"high"},
+      priority:10
     }
   end
 end
